@@ -45,10 +45,10 @@ export class StudentController {
   }
 
   @Delete(':studentId/classes/:classId')
-  deleteClassByStudent(
+  deleteClassForStudent(
     @Param('studentId') studentId: string,
     @Param('classId') classId: string,
   ): string {
-    return 'deleted' + studentId + ':' + classId;
+    return this.service.deleteClassForStudent(studentId, classId);
   }
 }

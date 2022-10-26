@@ -53,3 +53,14 @@ export function updateClassForStudent(studentId: string, newCl: Class): Class {
     }
   return undefined;
 }
+
+export function deleteClassForStudent(
+  studentId: string,
+  classId: string,
+): string {
+  const idx = CLASSES.get(studentId).findIndex((cl) => cl.id == classId);
+  if (idx == -1) return '';
+
+  CLASSES.get(studentId).splice(idx, 1);
+  return classId;
+}

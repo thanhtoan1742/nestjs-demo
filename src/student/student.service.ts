@@ -1,6 +1,7 @@
-import { Injectable } from '@nestjs/common';
+import { CacheKey, Injectable } from '@nestjs/common';
 import {
   createClassForStudent,
+  deleteClassForStudent,
   getClassByStudent,
   getClassesByStudent,
   updateClassForStudent,
@@ -33,5 +34,9 @@ export class StudentService {
   updateClassForStudent(studentId: string, classId: string, cl: Class): Class {
     cl.id = classId;
     return updateClassForStudent(studentId, cl);
+  }
+
+  deleteClassForStudent(studentId: string, classId: string): string {
+    return deleteClassForStudent(studentId, classId);
   }
 }
